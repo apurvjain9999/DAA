@@ -1,6 +1,6 @@
-#include<iostream>
-#include<stdlib.h>
+#include<bits/stdc++.h>
 using namespace std;
+
 struct bst
 {
     int data;
@@ -19,7 +19,7 @@ struct bst* new_node (int data)
 
 struct bst* BST_insert (struct bst* node, int data)
 {
-    if (node == NULL)
+    if (!node)
         return new_node(data);
     else if (data < node->data)
         node->prev = BST_insert(node->prev,data);
@@ -30,7 +30,7 @@ struct bst* BST_insert (struct bst* node, int data)
 }
 void inorder(struct bst *node)
 {
-    if(node == NULL)
+    if(!node)
         return;
     else
     {
@@ -42,7 +42,7 @@ void inorder(struct bst *node)
 }
 void preorder(struct bst *node)
 {
-    if(node == NULL)
+    if(!node)
         return;
     else
     {
@@ -53,7 +53,7 @@ void preorder(struct bst *node)
 }
 void postorder(struct bst *node)
 {
-    if(node == NULL)
+    if(!node)
         return;
     else
     {
@@ -65,6 +65,11 @@ void postorder(struct bst *node)
 }
 int main()
 {
+    //Make i/o fast
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    
     struct bst *root = NULL;
     int ans = 0;
     cout<<"Enter Data to be inserted in the Tree"<<endl;
